@@ -1,9 +1,6 @@
 SpreeFlatInRange
 ================
 
-**This spree extension is no longer maintained; it was developed for
-Spree 1.0.0, but upgrading to 1.x.0 versions is problematic, due to bugs
-in Spree's "dummy" app building and its rapid changing API**
 
 A [Spree calculator](http://guides.spreecommerce.com/adjustments.html)
 to calculate fixed adjustments based on ranges.

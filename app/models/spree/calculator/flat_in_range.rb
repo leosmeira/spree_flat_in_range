@@ -4,18 +4,23 @@ module Spree
     preference :upper_boundry,    :decimal, :default => 50.0
     preference :amount,           :decimal, :default => 5.0
     attr_accessible :preferred_lower_boundry, :preferred_upper_boundry, :preferred_amount
+    
     def self.description
       I18n.t(:flat_in_range)
     end
 
     def compute(object)
-      sum = 0
+      return self.preferred_amount
+    end
+    
+    def available?(object)
       item_total = object.line_items.map(&:amount).sum
       if (item_total >= self.preferred_lower_boundry && item_total <= self.preferred_upper_boundry)
-        return self.preferred_amount
+        return true
       else
-        return 0.0
+        return false
       end
     end
+      
   end
 end
